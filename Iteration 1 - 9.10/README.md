@@ -1,10 +1,7 @@
-# projetmvc_groupe4
-
-
+Itération du 09/10 --
 
 
 Log du Projet MVC : Groupe 4
-
 
 
 Rapport du 08/10/17 :
