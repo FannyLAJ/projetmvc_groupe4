@@ -10,7 +10,7 @@ class Database {
 	 * Ouvre la base de données. Si la base n'existe pas elle
 	 * est créée à l'aide de la méthode createDataBase().
 	 */
-	public function __construct() {
+		public function __construct() {
 		$dbHost = "localhost";
 		$dbBd = "sondages";
 		$dbPass = "";
@@ -35,9 +35,27 @@ class Database {
 	 *		count integer);
 	 */
 	private function createDataBase() {
-		/* TODO START */
-		/* TODO END */
-	}
+        $this->connection->exec('CREATE DATABASE IF NOT EXISTS sondages CHARACTER SET "utf8";
+        				USE sondages;
+						CREATE TABLE IF NOT EXISTS users (
+							nickname char(20) NOT NULL, 
+							password char(50)
+						);
+						CREATE TABLE IF NOT EXISTS surveys (
+							id_survey int(4) NOT NULL AUTO_INCREMENT, 
+							owner char(20) NOT NULL, 
+							question char(255) NOT NULL, 
+							PRIMARY KEY (id)
+						);
+						CREATE TABLE IF NOT EXISTS responses (
+							id_answers int(5) NOT NULL AUTO_INCREMENT, 
+							id_survey int(4) NOT NULL,
+							title char(255) NOT NULL, 
+							count int(40) NOT NULL, 
+							PRIMARY KEY (id)
+						);
+						ALTER TABLE responses ADD CONSTRAINT fk_id_survey FOREIGN KEY (id_survey) REFERENCES surveys(id_survey);');
+    }
 
 	/**
 	 * Vérifie si un pseudonyme est valide, c'est-à-dire,
@@ -47,8 +65,9 @@ class Database {
 	 * @return boolean True si le pseudonyme est valide, false sinon.
 	 */
 	private function checkNicknameValidity($nickname) {
-		/* TODO START */
-		/* TODO END */
+		$nickname = $_POST['signUpLogin'];
+		if (!preg_match('[a-zA-Z]', $nickname) || (3>strlen($nickname) || strlen($nickname)>10)) return false;
+		else return true;
 	}
 
 	/**
@@ -59,9 +78,10 @@ class Database {
 	 * @return boolean True si le mot de passe est valide, false sinon.
 	 */
 	private function checkPasswordValidity($password) {
-		/* TODO START */
-		/* TODO END */
-	}
+		$password = $_POST['signUpPassword'];
+        if (3>strlen($password) || strlen($password)>10) return false;
+		else return true;
+    }
 
 	/**
 	 * Vérifie la disponibilité d'un pseudonyme.
@@ -70,8 +90,13 @@ class Database {
 	 * @return boolean True si le pseudonyme est disponible, false sinon.
 	 */
 	private function checkNicknameAvailability($nickname) {
-		/* TODO START */
-		/* TODO END */
+        $nickname = $_POST['signUpLogin'];                   //Récupère la valeur du nickname user depuis le login form
+        $res = $this->connection->query('SELECT nickname FROM users;'); //Récupère l'ensemble des nicknames présents dans la bd
+        $nicknames = $res->fetch(PDO::FETCH_ASSOC);			//Sous forme de tableau
+        if (in_array($nickname, $nicknames)) {
+        	return false;
+        }
+        else return true;
 	}
 
 	/**
@@ -82,8 +107,12 @@ class Database {
 	 * @return boolean True si le couple est correct, false sinon.
 	 */
 	public function checkPassword($nickname, $password) {
-		/* TODO START */
-		/* TODO END */
+		$nickname = $_POST['nickname'];
+		$password = $_POST['password'];
+		$res = $this->connection->query('SELECT nickname, password FROM users WHERE nickname ="'.$nickname.'";');
+		$login = $res->fetch(PDO::FETCH_ASSOC);
+		if ($nickname == $login['nickname'] && $password == $login['password']) return true;
+		else return false;
 	}
 
 	/**
