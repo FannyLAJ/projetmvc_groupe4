@@ -66,7 +66,7 @@ class Database {
      * @return boolean True si le pseudonyme est valide, false sinon.
      */
     private function checkNicknameValidity($nickname) {
-        if (3>strlen($nickname) || strlen($nickname)>10) return false;
+        if (3>=strlen($nickname) || strlen($nickname)>=10) return false;
         else return true;
     }
 
@@ -78,7 +78,7 @@ class Database {
      * @return boolean True si le mot de passe est valide, false sinon.
      */
     private function checkPasswordValidity($password) {
-        if (3>strlen($password) || strlen($password)>10) return false;
+        if (3>=strlen($password) || strlen($password)>=10) return false;
         else return true;
     }
 
@@ -89,12 +89,11 @@ class Database {
      * @return boolean True si le pseudonyme est disponible, false sinon.
      */
     private function checkNicknameAvailability($nickname) {
-        $nickname = $_POST['signUpLogin'];                   //Récupère la valeur du nickname user depuis le login form
         $res = $this->connection->query('SELECT nickname FROM users;'); //Récupère l'ensemble des nicknames présents dans la bd
         $nicknames = $res->fetch(PDO::FETCH_ASSOC);			//Sous forme de tableau
-        if (in_array($nickname, $nicknames)) {
-            return false;
-        }
+            if (in_array($nickname, $nicknames)) {
+                return false;
+            }
         else return true;
     }
 
@@ -106,8 +105,6 @@ class Database {
      * @return boolean True si le couple est correct, false sinon.
      */
     public function checkPassword($nickname, $password) {
-        $nickname = $_POST['nickname'];
-        $password = $_POST['password'];
         $res = $this->connection->query('SELECT nickname, password FROM users WHERE nickname ="'.$nickname.'";');
         $login = $res->fetch(PDO::FETCH_ASSOC);
         if ($nickname == $login['nickname'] && $password == $login['password']) return true;
@@ -128,25 +125,21 @@ class Database {
     public function addUser($nickname, $password) {
 
         if ($this->checkNicknameAvailability($nickname) == false){
-            echo "1";
             return "Le pseudo existe déjà.";
 
         }
         elseif ($this->checkNicknameValidity($nickname) == false) {
-            echo "2";
             return "Le pseudo doit contenir entre 3 et 10 caractères, et uniquement des lettres.";
 
         }
         elseif ($this->checkPasswordValidity($password) == false) {
-            echo "3";
             return "Le mot de passe doit contenir entre 3 et 10 caractères.";
         }
         else {
             $res = $this->connection->exec('INSERT INTO users (nickname, password) VALUES (
 						"'.$nickname.'", "'.$password.'"
 						);');
-            if (!$res) die("Erreur lors de l'inscription =( ".$this->connection->errorInfo());
-            return true;
+            if ($res) return true;
         }
 
     }
