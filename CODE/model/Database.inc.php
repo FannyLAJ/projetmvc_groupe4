@@ -89,12 +89,17 @@ class Database {
      * @return boolean True si le pseudonyme est disponible, false sinon.
      */
     private function checkNicknameAvailability($nickname) {
-        $res = $this->connection->query('SELECT nickname FROM users;'); //Récupère l'ensemble des nicknames présents dans la bd
-        $nicknames = $res->fetch(PDO::FETCH_ASSOC);			//Sous forme de tableau
-            if (in_array($nickname, $nicknames)) {
-                return false;
-            }
-        else return true;
+        //On récupère tous les champs 'nickname' de la table 'users'
+        //Sous forme de tableau
+        $res = $this->connection->query('SELECT nickname FROM users;');
+        $nicknames = $res->fetch(PDO::FETCH_ASSOC);
+	    
+	//Pour éviter les erreurs lors de la 1ère inscription, on vérifie que $nicknames
+	//n'est pas vide avant de vérifier que le pseudo n'existe pas.    
+        if ($nicknames != '') {
+            if (in_array($nickname, $nicknames)) return false;
+        }
+        return true;
     }
 
     /**
@@ -180,10 +185,9 @@ class Database {
      * @return boolean True si la sauvegarde a été réalisée avec succès, false sinon.
      */
     private function saveResponse($response) {
-        $id_survey =
-        $response = $_POST['responseSurvey'];
         $res = $this->connection->exec('INSERT INTO responses (id_survey, title) VALUES
  			('.$id_survey.','.$response.');');
+        if (!$res) return false;
         return true;
     }
 
