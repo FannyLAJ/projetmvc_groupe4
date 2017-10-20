@@ -45,7 +45,7 @@ class AddSurveyAction extends Action {
 				$this->setAddSurveyFormView("La question est obligatoire.");
 			} else {
 
-				if ($responseSurvey1 == null | $responseSurvey2 == null){
+				if ($responseSurvey1 == null){
 					$this->setAddSurveyFormView("Il faut saisir au moins 2 réponses");
 				} else {
 					if ($responseSurvey2 == null){
