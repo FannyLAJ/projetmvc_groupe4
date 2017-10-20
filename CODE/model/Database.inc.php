@@ -159,8 +159,17 @@ class Database {
      * @param string $password Nouveau mot de passe.
      * @return boolean|string True si le mot de passe a été modifié, un message d'erreur sinon.
      */
-    public static function updateUser($nickname, $password) {
+    public function updateUser($nickname, $password) {
 
+           if ($this->checkPasswordValidity($password) == false)
+           {
+
+            return "le mot de passe est invalide, ne respecte pas les conditions nécessaires.";
+        }
+        else {
+            $this->connection->exec('UPDATE users SET password = "'.$password.'" WHERE nickname = "'.$nickname.'"');
+
+           }
         return true;
     }
 
