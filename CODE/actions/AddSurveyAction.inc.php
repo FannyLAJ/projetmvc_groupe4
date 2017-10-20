@@ -28,7 +28,7 @@ class AddSurveyAction extends Action {
 	public function run() {
 		/* TODO START */
 		
-		if ($_SESSION['login'] == null){
+		if ($this->getSessionLogin() === null){
 			$this->setAddSurveyFormView("Veuillez vous connecter avant.");
 		}
 		else {
@@ -41,27 +41,59 @@ class AddSurveyAction extends Action {
 			$responseSurvey4 = htmlentities($_POST['responseSurvey4']);
 			$responseSurvey5 = htmlentities($_POST['responseSurvey5']);
 
-			if ($questionSurvey == null){
+			if ($questionSurvey === null){
 				$this->setAddSurveyFormView("La question est obligatoire.");
 			} else {
 
-				if ($responseSurvey1 == null){
+				if ($responseSurvey1 === null){
 					$this->setAddSurveyFormView("Il faut saisir au moins 2 réponses");
 				} else {
-					if ($responseSurvey2 == null){
+					if ($responseSurvey2 === null){
 						$this->setAddSurveyFormView("Il faut saisir au moins 2 réponses");
 					} else {
 						$this->database->saveSurvey($questionSurvey);
-						$this->database->saveResponse($responseSurvey1);
-						$this->database->saveResponse($responseSurvey2);
-						if ($responseSurvey3 != null){
-							$this->database->saveResponse($responseSurvey3);
+
+						$bdd = new PDO('mysql:host=localhost;dbname=sondages;charset=utf8', 'root', '');
+
+						$id_survey = $bdd->query('SELECT id_survey FROM surveys ORDER BY id_survey DESC LIMIT 0, 1');
+						while ($goodId = $id_survey->fetch())
+						{
+						    $theId = $goodId['id_survey'];
 						}
-						if ($responseSurvey4 != null){
-							$this->database->saveResponse($responseSurvey4);
+						  
+						$id_survey->closeCursor();
+
+						$req = $bdd->prepare("INSERT INTO responses(id_survey, title) VALUES(:idSurvey, :titleResponse)");
+						$req->execute(array(
+						'idSurvey' => $theId,
+						'titleResponse' => $responseSurvey1
+						));
+						$req = $bdd->prepare("INSERT INTO responses(id_survey, title) VALUES(:idSurvey, :titleResponse)");
+						$req->execute(array(
+						'idSurvey' => $theId,
+						'titleResponse' => $responseSurvey2
+						));
+
+						if ($responseSurvey3 != null) {
+							$req = $bdd->prepare("INSERT INTO responses(id_survey, title) VALUES(:idSurvey, :titleResponse)");
+							$req->execute(array(
+							'idSurvey' => $theId,
+							'titleResponse' => $responseSurvey3
+							));
 						}
-						if ($responseSurvey5 != null){
-							$this->database->saveResponse($responseSurvey5);
+						if ($responseSurvey4 != null) {
+							$req = $bdd->prepare("INSERT INTO responses(id_survey, title) VALUES(:idSurvey, :titleResponse)");
+							$req->execute(array(
+							'idSurvey' => $theId,
+							'titleResponse' => $responseSurvey4
+							));
+						}
+						if ($responseSurvey5 != null) {
+							$req = $bdd->prepare("INSERT INTO responses(id_survey, title) VALUES(:idSurvey, :titleResponse)");
+							$req->execute(array(
+							'idSurvey' => $theId,
+							'titleResponse' => $responseSurvey5
+							));
 						}
 
 						$this->setMessageView($message = "Merci, nous avons ajouté votre sondage.", $style="alert-success");
