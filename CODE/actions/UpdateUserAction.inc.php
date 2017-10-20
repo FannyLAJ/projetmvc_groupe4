@@ -21,9 +21,36 @@ class UpdateUserAction extends Action {
 	 * @see Action::run()
 	 */
 	public function run() {
-		/* TODO START */
-		/* TODO END */
-	}
+
+		if (isset($_POST['updatePassword']) && isset($_POST['updatePassword2'])) {
+
+			$nickname = $_SESSION['login'];
+			$UpdatePassword = $_POST['updatePassword'];
+            $UpdatePassword2 = $_POST['updatePassword2'];
+
+            if($UpdatePassword !== $UpdatePassword2 ) {
+            	$this->setUpdateUserFormView("Le mot de passe est le confirmation du nouveau mot de passe ne sont pas identique");
+			}
+			else {
+            	$res = $this->database->updateUser($nickname, $UpdatePassword);
+                if ($res !== true) {
+
+                    $this->setUpdateUserFormView($res);
+                }
+
+                else {
+
+                    $this->setSessionLogin($nickname);
+
+                    $this->setView(getViewByName("Message"));
+
+                    $this->getView()->setMessage("Le changement de mot de passe est réussi");
+                }
+            }
+			}
+        return true;
+        }
+
 
 	private function setUpdateUserFormView($message) {
 		$this->setView(getViewByName("UpdateUserForm"));
