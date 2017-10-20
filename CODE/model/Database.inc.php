@@ -164,7 +164,7 @@ class Database {
            if ($this->checkPasswordValidity($password) == false)
            {
 
-            return "le mot de passe est invalide, ne respecte pas les conditions nécessaires.";
+            return "Le mot de passe doit contenir entre 3 et 10 caractères.";
         }
         else {
             $this->connection->exec('UPDATE users SET password = "'.$password.'" WHERE nickname = "'.$nickname.'"');
