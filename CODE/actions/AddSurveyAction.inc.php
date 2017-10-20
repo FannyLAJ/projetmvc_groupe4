@@ -27,6 +27,49 @@ class AddSurveyAction extends Action {
 	 */
 	public function run() {
 		/* TODO START */
+		
+		if ($_SESSION['login'] == null){
+			$this->setAddSurveyFormView("Veuillez vous connecter avant.");
+		}
+		else {
+			$questionSurvey = htmlentities($_POST['questionSurvey']);
+			
+
+			$responseSurvey1 = htmlentities($_POST['responseSurvey1']);
+			$responseSurvey2 = htmlentities($_POST['responseSurvey2']);
+			$responseSurvey3 = htmlentities($_POST['responseSurvey3']);
+			$responseSurvey4 = htmlentities($_POST['responseSurvey4']);
+			$responseSurvey5 = htmlentities($_POST['responseSurvey5']);
+
+			if ($questionSurvey == null){
+				$this->setAddSurveyFormView("La question est obligatoire.");
+			} else {
+
+				if ($responseSurvey1 == null | $responseSurvey2 == null){
+					$this->setAddSurveyFormView("Il faut saisir au moins 2 réponses");
+				} else {
+					if ($responseSurvey2 == null){
+						$this->setAddSurveyFormView("Il faut saisir au moins 2 réponses");
+					} else {
+						$this->database->saveSurvey($questionSurvey);
+						$this->database->saveResponse($responseSurvey1);
+						$this->database->saveResponse($responseSurvey2);
+						if ($responseSurvey3 != null){
+							$this->database->saveResponse($responseSurvey3);
+						}
+						if ($responseSurvey4 != null){
+							$this->database->saveResponse($responseSurvey4);
+						}
+						if ($responseSurvey5 != null){
+							$this->database->saveResponse($responseSurvey5);
+						}
+
+						$this->setMessageView($message = "Merci, nous avons ajouté votre sondage.", $style="alert-success");
+					}
+				}
+			}
+		}
+		
 		/* TODO END */
 	}
 
