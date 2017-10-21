@@ -17,7 +17,7 @@ class LoginAction extends Action {
     public function run() {
 
         //Si les données du formulaire existent, on les traite
-        if (isset($_POST['nickname']) && isset($_POST['password'])) {
+        if ($_POST['nickname'] !== '' && $_POST['password'] !== '') {
             $nickname = $_POST['nickname'];
             $password = $_POST['password'];
 
@@ -34,6 +34,10 @@ class LoginAction extends Action {
                 $this->setView(getViewByName("Message"));
                 $this->getView()->setMessage("Connexion réussie.", "alert-success");
             }
+        }
+        else {
+            $this->setView(getViewByName("Message"));
+            $this->getView()->setMessage("Pseudo ou mot de passe incorrect", "alert-error");
         }
     }
 }
