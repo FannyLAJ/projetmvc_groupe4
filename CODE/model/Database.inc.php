@@ -194,8 +194,11 @@ class Database {
      */
     public function saveResponse($response) {
         $res = $this->connection->exec('INSERT INTO responses (id_survey, title, count) VALUES
- 			('.$response->id_survey.', "'.$response->getTitle().'", '.$response->getCount().');');
-        if (!$res) return false;
+ 			('.$response->getSurvey().', "'.$response->getTitle().'", '.$response->getCount().');');
+        if (!$res) {
+            echo "<br><br><br>";
+            print_r($this->connection->errorInfo());
+        }
         else {
             $res = $this->connection->query('SELECT id_answers FROM responses WHERE title="'.$response->getTitle().'";');
             $id_answer=$res->fetch(PDO::FETCH_ASSOC);
