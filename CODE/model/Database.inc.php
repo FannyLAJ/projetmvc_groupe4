@@ -194,7 +194,7 @@ class Database {
      */
     public function saveResponse($response) {
         $res = $this->connection->exec('INSERT INTO responses (id_survey, title, count) VALUES
- 			('.$response->getIdSurvey().', "'.$response->getTitle().'", '.$response->getCount().');');
+ 			('.$response->id_survey.', "'.$response->getTitle().'", '.$response->getCount().');');
         if (!$res) return false;
         else {
             $res = $this->connection->query('SELECT id_answers FROM responses WHERE title="'.$response->getTitle().'";');
