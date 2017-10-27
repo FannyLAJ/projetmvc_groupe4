@@ -57,7 +57,7 @@ class AddSurveyAction extends Action {
                     $db->saveSurvey($survey);
 
                     foreach ($responsesSurvey as $response) {
-                        $response = new Response($survey->getId(), $survey, $response);
+                        $response = new Response($survey->getId(), $survey->getQuestion());
                         $survey->addResponse($response);
                         $db->saveResponse($response);
                     }
