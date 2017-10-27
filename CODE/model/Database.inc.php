@@ -14,7 +14,7 @@ class Database {
      public function __construct() {
          $dbHost = "localhost";
          $dbBd = "sondages";
-         $dbPass = "password";
+         $dbPass = "";
          $dbLogin = "root";
          $url = 'mysql:host='.$dbHost.';dbname='.$dbBd;
          //$url = 'sqlite:database.sqlite';
@@ -93,9 +93,6 @@ class Database {
         //Sous forme de tableau
         $res = $this->connection->query('SELECT nickname FROM users;');
         $nicknames = $res->fetch(PDO::FETCH_ASSOC);
-	    
-	//Pour éviter les erreurs lors de la 1ère inscription, on vérifie que $nicknames
-	//n'est pas vide avant de vérifier que le pseudo n'existe pas.    
         if ($nicknames != '') {
             if (in_array($nickname, $nicknames)) return false;
         }
@@ -134,7 +131,7 @@ class Database {
 
         }
         elseif ($this->checkNicknameValidity($nickname) == false) {
-            return "Le pseudo doit contenir entre 3 et 10 caractères, et uniquement des lettres.";
+            return "Le pseudo doit contenir entre 3 et 10 caractères.";
 
         }
         elseif ($this->checkPasswordValidity($password) == false) {
@@ -160,16 +157,12 @@ class Database {
      * @return boolean|string True si le mot de passe a été modifié, un message d'erreur sinon.
      */
     public function updateUser($nickname, $password) {
-
-           if ($this->checkPasswordValidity($password) == false)
-           {
-
+        if ($this->checkPasswordValidity($password) == false) {
             return "Le mot de passe doit contenir entre 3 et 10 caractères.";
         }
         else {
             $this->connection->exec('UPDATE users SET password = "'.$password.'" WHERE nickname = "'.$nickname.'"');
-
-           }
+        }
         return true;
     }
 
@@ -182,9 +175,15 @@ class Database {
      */
     public function saveSurvey($survey) {
         $res=$this->connection->exec('INSERT INTO surveys (owner, question) VALUES
-			("'.$_SESSION['login'].'","'.$_POST['questionSurvey'].'" );');
+			("'.$survey->getOwner().'","'.$survey->getQuestion().'" );');
         if (!$res) return false;
-        else return true;
+        else {
+            $res = $this->connection->query('SELECT id_survey FROM surveys WHERE owner="'.$survey->getOwner().'" AND question
+            ="'.$survey->getQuestion().'";');
+            $id_survey=$res->fetch(PDO::FETCH_ASSOC);
+            $survey->setId($id_survey['id_survey']);
+            return true;
+        }
     }
 
     /**
@@ -193,10 +192,15 @@ class Database {
      * @param Response $response Réponse à sauvegarder.
      * @return boolean True si la sauvegarde a été réalisée avec succès, false sinon.
      */
-    private function saveResponse($response) {
-        $res = $this->connection->exec('INSERT INTO responses (id_survey, title) VALUES
- 			('.$id_survey.','.$response.');');
+    public function saveResponse($response) {
+        $res = $this->connection->exec('INSERT INTO responses (id_survey, title, count) VALUES
+ 			('.$response->getIdSurvey().', "'.$response->getTitle().'", '.$response->getCount().');');
         if (!$res) return false;
+        else {
+            $res = $this->connection->query('SELECT id_answers FROM responses WHERE title="'.$response->getTitle().'";');
+            $id_answer=$res->fetch(PDO::FETCH_ASSOC);
+            $response->setId($id_answer['id_answers']);
+        }
         return true;
     }
 
