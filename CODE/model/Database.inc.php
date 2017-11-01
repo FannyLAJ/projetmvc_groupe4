@@ -37,21 +37,21 @@ class Database {
     private function createDataBase() {
         $this->connection->exec('USE sondages;
                         CREATE TABLE IF NOT EXISTS users (
-							nickname varchar(20) NOT NULL, 
+							nickname varchar(20) NOT NULL,
 							password varchar(50) NOT NULL,
 							PRIMARY KEY (nickname)
 						);
 						CREATE TABLE IF NOT EXISTS surveys (
-							id_survey int(4) NOT NULL AUTO_INCREMENT, 
-							owner varchar(20) NOT NULL, 
-							question varchar(255) NOT NULL, 
+							id_survey int(4) NOT NULL AUTO_INCREMENT,
+							owner varchar(20) NOT NULL,
+							question varchar(255) NOT NULL,
 							PRIMARY KEY (id_survey)
 						);
 						CREATE TABLE IF NOT EXISTS responses (
-							id_answers int(5) NOT NULL AUTO_INCREMENT, 
+							id_answers int(5) NOT NULL AUTO_INCREMENT,
 							id_survey int(4) NOT NULL,
-							title varchar(255) NOT NULL, 
-							count int(40), 
+							title varchar(255) NOT NULL,
+							count int(40),
 							PRIMARY KEY (id_answers)
 						);
 						ALTER TABLE responses ADD CONSTRAINT fk_id_survey FOREIGN KEY (id_survey) REFERENCES surveys(id_survey);
@@ -227,7 +227,7 @@ class Database {
      * @return array(Survey)|boolean Sondages trouvés par la fonction ou false si une erreur s'est produite.
      */
     public function loadSurveysByKeyword($keyword) {
-        $res = $this->connection->query('SELECT * FROM sondages WHERE question LIKE "%'.$keyword.'%";');
+        $res = $this->connection->query('SELECT * FROM surveys WHERE question LIKE "%'.$keyword.'%";');
         if (!$res) return false;
         $survey = $res->fetch(PDO::FETCH_ASSOC);
         return $survey;

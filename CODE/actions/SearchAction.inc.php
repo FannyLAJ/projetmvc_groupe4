@@ -15,15 +15,20 @@ class SearchAction extends Action {
 	 * @see Action::run()
 	 */
 	public function run() {
-
 		//Si la recherche est vide
-		if ($_POST["keyword"] == "") {
-			//On affiche le message d'erreur
-			$this->setMessageView("Vous devez entrer un mot clé  avant de lancer la recherche.", "alert-error");
+		if (empty($_POST["keyword"])) {
+			//On affiche le message
+			$this->setMessageView("Vous devez entrer un mot clé avant de lancer la recherche.", "alert-error");
 		//Sinon
 		} else {
-			//On affiche la vue SurveysView
+			//On définie la BDD
+			$db = new Database();
+			//On set la vue Surveys
 			$this->setView(getViewByName("Surveys"));
+			//On récupere les sondages selon le mot clef
+			$res = $db->loadSurveysByKeyword($_POST["keyword"]);
+			//On ajour le sondage
+			$this->getView()->setSurveys($res);
 		}
 
 	}

@@ -1,6 +1,6 @@
 <?php
 class Survey {
-	
+
 	private $id;
 	private $owner;
 	private $question;
@@ -24,8 +24,8 @@ class Survey {
 	public function getOwner() {
 		return $this->owner;
 	}
-	
-	public function getQuestion() {	
+
+	public function getQuestion() {
 		return $this->question;
 	}
 
@@ -36,11 +36,11 @@ class Survey {
 	public function setResponses($responses) {
 		$this->responses = $responses;
 	}
-	
+
 	public function addResponse($response) {
 		$this->responses[] = $response;
 	}
-	
+
 	public function computePercentages() {
 		/* TODO START */
 		/* TODO END */
