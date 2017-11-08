@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c86b7a0b-ece4-428a-a65c-0366e948663d" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/RENDU FINAL/docs/Cahier des recettes/Scénario_CasDUtilisation_v2.docx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Iteration 4 - 30.10/DOCS/RAPPORT DES TEST/~$pportTest_CreationSondage.docx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/RENDU FINAL/docs/Cahier des recettes/~$énario_CasDUtilisation_v3.docx" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -324,16 +325,16 @@
       <option name="presentableId" value="Default" />
       <updated>1506973760190</updated>
       <workItem from="1506973761552" duration="189000" />
-      <workItem from="1510139491076" duration="1316000" />
+      <workItem from="1510139491076" duration="1778000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1505000" />
+    <option name="totallyTimeSpent" value="1967000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="69" y="-9" width="1860" height="1098" extended-state="7" />
-    <editor active="true" />
+    <frame x="69" y="-9" width="1860" height="1098" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30510315" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
