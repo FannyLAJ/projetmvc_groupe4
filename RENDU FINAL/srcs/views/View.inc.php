@@ -30,7 +30,7 @@ abstract class View {
 	 * @param string $login Login de l'utilisateur.
 	 */
 	public function setLogin($login) {
-		$this->login = $login;	
+	    $this->login = $login;
 	}	
 
 	/**

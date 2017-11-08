@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container">	
 <br>
 <br>
 <br>
@@ -6,7 +6,7 @@
 	<ul class="media-list">
 		<?php
 				foreach ($this->surveys as $survey) {
-					$survey->computePercentages();
+                    $survey->computePercentages();
 					require("survey.inc.php");
 				}
 		?>

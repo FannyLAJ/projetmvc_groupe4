@@ -17,17 +17,18 @@ class VoteAction extends Action {
 	 * @see Action::run()
 	 */	
 	public function run() {
+
+		if (isset($_POST["responseId"])) {
+			$responseId = (int)trim($_POST["responseId"]);
+
 		
-		$responseId = "";
+			$r = $this->database->vote((int)$responseId);
 		
-		if (isset($_POST["responseId"])) $responseId = (int)trim($_POST["responseId"]);
-		
-		$r = $this->database->vote((int)$responseId);
-		
-		if ($r===false) {
-			$this->setMessageView("Impossible d'enregistrer votre vote.", "alert-error");
+			if ($r===false) {
+				$this->setMessageView("Impossible d'enregistrer votre vote.", "alert-error");
 			return;
-		}
+			}
+        }
 		
 		$this->setMessageView("Votre vote a été enregistré.", "alert-success");
 	}

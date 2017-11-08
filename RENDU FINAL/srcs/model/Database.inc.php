@@ -37,21 +37,21 @@ class Database {
     private function createDataBase() {
         $this->connection->exec('USE sondages;
                         CREATE TABLE IF NOT EXISTS users (
-							nickname varchar(20) NOT NULL,
+							nickname varchar(20) NOT NULL, 
 							password varchar(50) NOT NULL,
 							PRIMARY KEY (nickname)
 						);
 						CREATE TABLE IF NOT EXISTS surveys (
-							id_survey int(4) NOT NULL AUTO_INCREMENT,
-							owner varchar(20) NOT NULL,
-							question varchar(255) NOT NULL,
+							id_survey int(4) NOT NULL AUTO_INCREMENT, 
+							owner varchar(20) NOT NULL, 
+							question varchar(255) NOT NULL, 
 							PRIMARY KEY (id_survey)
 						);
 						CREATE TABLE IF NOT EXISTS responses (
-							id_answers int(5) NOT NULL AUTO_INCREMENT,
+							id_answers int(5) NOT NULL AUTO_INCREMENT, 
 							id_survey int(4) NOT NULL,
-							title varchar(255) NOT NULL,
-							count int(40),
+							title varchar(255) NOT NULL, 
+							count int(40), 
 							PRIMARY KEY (id_answers)
 						);
 						ALTER TABLE responses ADD CONSTRAINT fk_id_survey FOREIGN KEY (id_survey) REFERENCES surveys(id_survey);
@@ -196,7 +196,6 @@ class Database {
         $res = $this->connection->exec('INSERT INTO responses (id_survey, title, count) VALUES
  			('.$response->getSurvey().', "'.$response->getTitle().'", '.$response->getCount().');');
         if (!$res) {
-            echo "<br><br><br>";
             print_r($this->connection->errorInfo());
         }
         else {
@@ -215,9 +214,15 @@ class Database {
      */
     public function loadSurveysByOwner($owner) {
         $res = $this->connection->query('SELECT * FROM surveys WHERE owner="'.$owner.'";');
-        if (!$res) return false;
-        $survey = $res->fetch(PDO::FETCH_ASSOC);
-        return $survey;
+        if (!$res) {
+            print_r($this->connection->errorInfo());
+            return false;
+        }
+        else {
+            $arraySurvey = $res->fetchAll();
+            $surveys = $this->loadSurveys($arraySurvey);
+            return $surveys;
+        }
     }
 
     /**
@@ -226,11 +231,19 @@ class Database {
      * @param string $keyword Mot clé à chercher.
      * @return array(Survey)|boolean Sondages trouvés par la fonction ou false si une erreur s'est produite.
      */
-    public function loadSurveysByKeyword($keyword) {
-        $res = $this->connection->query('SELECT * FROM surveys WHERE question LIKE "%'.$keyword.'%";');
-        if (!$res) return false;
-        $survey = $res->fetch(PDO::FETCH_ASSOC);
-        return $survey;
+    public function loadSurveysByKeyword($keyword)
+    {
+        $res = $this->connection->query('SELECT * FROM surveys WHERE question LIKE "%' . $keyword . '%";');
+        if (!$res) {
+            print_r($this->connection->errorInfo());
+            return false;
+        }
+        else {
+            $arraySurvey = $res->fetchAll();
+            $surveys = $this->loadSurveys($arraySurvey);
+            return $surveys;
+        }
+
     }
 
 
@@ -241,7 +254,7 @@ class Database {
      * @return boolean True si le vote a été enregistré, false sinon.
      */
     public function vote($id) {
-        $res = $this->connection->exec('UPDATE TABLE answers SET count = count+1 WHERE id_answers ='.$id.';');
+        $res = $this->connection->exec('UPDATE responses SET count = count+1 WHERE id_answers ='.$id.';');
         if (!$res) return false;
         else return true;
     }
@@ -254,9 +267,14 @@ class Database {
      * @return array(Survey)|boolean Le tableau de sondages ou false si une erreur s'est produite.
      */
     private function loadSurveys($arraySurveys) {
-        $res = $this->connection->query('SELECT * FROM surveys;');
-        if (!$res) return false;
-        $surveys = $res->fetchAll();
+        $surveys = array();
+        foreach ($arraySurveys as $survey) {
+            $id = $survey["id_survey"];
+            $survey = new Survey($survey["owner"], $survey["question"]);
+            $survey->setId($id);
+            $this->loadResponses($survey);
+            array_push($surveys, $survey);
+        }
         return $surveys;
     }
 
@@ -268,11 +286,31 @@ class Database {
      * @param array $arraySurveys Tableau de lignes.
      * @return array(Response)|boolean Le tableau de réponses ou false si une erreur s'est produite.
      */
-    private function loadResponses($survey, $arrayResponses) {
-        $res = $this->connection->query('SELECT * FROM answers;');
+    private function loadResponses($survey) {
+        $idSurvey = $survey->getId();
+        $res = $this->connection->query('SELECT * FROM responses WHERE id_survey='.$idSurvey.';');
+        if (!$res) {
+            print_r($this->connection->errorInfo());
+            return false;
+        }
+        else {
+            while ($arrayResponses = $res->fetch(PDO::FETCH_ASSOC)) {
+                $response = new Response($idSurvey, $arrayResponses["title"], $arrayResponses["count"]);
+                $response->setId($arrayResponses["id_answers"]);
+                $survey->addResponse($response);
+            }
+            return true;
+        }
+    }
+
+    public function deleteSurvey($idSurvey) {
+        $res = $this->connection->exec('DELETE FROM responses WHERE id_survey ='.$idSurvey.';');
         if (!$res) return false;
-        $responses = $res->fetchAll();
-        return $responses;
+        else {
+            $res = $this->connection->exec('DELETE FROM surveys WHERE id_survey ='.$idSurvey.';');
+            if (!$res) return false;
+            else return true;
+        }
     }
 
 }

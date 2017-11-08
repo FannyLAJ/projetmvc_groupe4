@@ -22,37 +22,27 @@ class SignUpAction extends Action {
 	 */
 	public function run() {
 
-		//Si tous les champs du formulaire sont remplis, on traite les données.
 		if (isset($_POST['signUpLogin']) && isset($_POST['signUpPassword']) && isset($_POST['signUpPassword2'])) {
-			//On récupères les valeurs pour des facilités d'écriture.
 			$nickname = $_POST['signUpLogin'];
 			$password = $_POST['signUpPassword'];
 			$password2 = $_POST['signUpPassword2'];
 
-			//Si l'un des deux mots de passe est différent de l'autre, on fait appel à la méthode
-			//setSignUpFormView pour afficher le message d'erreur.
 			if ($password !== $password2) {
 				$this->setSignUpFormView("Le mot de passe et sa confirmation sont différents.");
-            		}
+            }
 
-                        //Sinon, on transmet les données à la méthode addUser
-			//après avoir instancié un nouvel objet Database.
-			//Si la méthode renvoie une erreur, on l'affiche grâce à la méthode
-			//setSignUpFormView.
-			//Sinon, on stocke le login en session et on notifie l'utilisateur
-			//que son inscription est réussie.
 			else {
 				$db = new Database();
-                		$res = $db->addUser($nickname, $password);
+                $res = $db->addUser($nickname, $password);
 
-                		if ($res !== true) {
-                			$this->setSignUpFormView($res);
+                if ($res !== true) {
+                	$this->setSignUpFormView($res);
 				}
 				else {
 					$this->setSessionLogin($nickname);
-                    			$this->setView(getViewByName("Message"));
-                    			$this->getView()->setMessage("Inscription réussie !", "alert-success");
-                		}
+                    $this->setView(getViewByName("Message"));
+                    $this->getView()->setMessage("Inscription réussie !", "alert-success");
+                }
 			}
 		}
     }

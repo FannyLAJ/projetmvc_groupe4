@@ -57,9 +57,10 @@ class AddSurveyAction extends Action {
                     $db->saveSurvey($survey);
 
                     foreach ($responsesSurvey as $response) {
-                        $response = new Response($survey->getId(), $survey->getQuestion());
+                        $response = new Response($survey->getId(), $response);
                         $survey->addResponse($response);
                         $db->saveResponse($response);
+
                     }
 
                     $this->setMessageView("Merci, nous avons ajouté votre sondage.", "alert-success");
