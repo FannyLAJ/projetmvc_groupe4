@@ -2,44 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c86b7a0b-ece4-428a-a65c-0366e948663d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Iteration 3 - 23.10/DOCS/RapportTest_v2.docx" afterPath="$PROJECT_DIR$/Iteration 3 - 23.10/DOCS/RapportTest_v2.docx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Iteration 4 - 30.10/DOCS/Scénario_CasDUtilisation_v2.docx" afterPath="$PROJECT_DIR$/Iteration 4 - 30.10/DOCS/Scénario_CasDUtilisation_v2.docx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RENDU FINAL/Dossier_Etude.docx" afterPath="$PROJECT_DIR$/RENDU FINAL/Dossier_Etude.docx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RENDU FINAL/srcs/actions/Action.inc.php" afterPath="$PROJECT_DIR$/RENDU FINAL/srcs/actions/Action.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RENDU FINAL/srcs/actions/AddSurveyAction.inc.php" afterPath="$PROJECT_DIR$/RENDU FINAL/srcs/actions/AddSurveyAction.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RENDU FINAL/srcs/actions/AddSurveyFormAction.inc.php" afterPath="$PROJECT_DIR$/RENDU FINAL/srcs/actions/AddSurveyFormAction.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RENDU FINAL/srcs/actions/DefaultAction.inc.php" afterPath="$PROJECT_DIR$/RENDU FINAL/srcs/actions/DefaultAction.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RENDU FINAL/srcs/actions/GetMySurveysAction.inc.php" afterPath="$PROJECT_DIR$/RENDU FINAL/srcs/actions/GetMySurveysAction.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RENDU FINAL/srcs/actions/LoginAction.inc.php" afterPath="$PROJECT_DIR$/RENDU FINAL/srcs/actions/LoginAction.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RENDU FINAL/srcs/actions/LogoutAction.inc.php" afterPath="$PROJECT_DIR$/RENDU FINAL/srcs/actions/LogoutAction.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RENDU FINAL/srcs/actions/SearchAction.inc.php" afterPath="$PROJECT_DIR$/RENDU FINAL/srcs/actions/SearchAction.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RENDU FINAL/srcs/actions/SignUpAction.inc.php" afterPath="$PROJECT_DIR$/RENDU FINAL/srcs/actions/SignUpAction.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RENDU FINAL/srcs/actions/SignUpFormAction.inc.php" afterPath="$PROJECT_DIR$/RENDU FINAL/srcs/actions/SignUpFormAction.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RENDU FINAL/srcs/actions/UpdateUserAction.inc.php" afterPath="$PROJECT_DIR$/RENDU FINAL/srcs/actions/UpdateUserAction.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RENDU FINAL/srcs/actions/UpdateUserFormAction.inc.php" afterPath="$PROJECT_DIR$/RENDU FINAL/srcs/actions/UpdateUserFormAction.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RENDU FINAL/srcs/actions/VoteAction.inc.php" afterPath="$PROJECT_DIR$/RENDU FINAL/srcs/actions/VoteAction.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RENDU FINAL/srcs/bootstrap.min.css" afterPath="$PROJECT_DIR$/RENDU FINAL/srcs/bootstrap.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RENDU FINAL/srcs/index.php" afterPath="$PROJECT_DIR$/RENDU FINAL/srcs/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RENDU FINAL/srcs/model/Database.inc.php" afterPath="$PROJECT_DIR$/RENDU FINAL/srcs/model/Database.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RENDU FINAL/srcs/model/Response.inc.php" afterPath="$PROJECT_DIR$/RENDU FINAL/srcs/model/Response.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RENDU FINAL/srcs/model/Survey.inc.php" afterPath="$PROJECT_DIR$/RENDU FINAL/srcs/model/Survey.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RENDU FINAL/srcs/views/AddSurveyFormView.inc.php" afterPath="$PROJECT_DIR$/RENDU FINAL/srcs/views/AddSurveyFormView.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RENDU FINAL/srcs/views/DefaultView.inc.php" afterPath="$PROJECT_DIR$/RENDU FINAL/srcs/views/DefaultView.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RENDU FINAL/srcs/views/MessageView.inc.php" afterPath="$PROJECT_DIR$/RENDU FINAL/srcs/views/MessageView.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RENDU FINAL/srcs/views/SignUpFormView.inc.php" afterPath="$PROJECT_DIR$/RENDU FINAL/srcs/views/SignUpFormView.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RENDU FINAL/srcs/views/SurveysView.inc.php" afterPath="$PROJECT_DIR$/RENDU FINAL/srcs/views/SurveysView.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RENDU FINAL/srcs/views/UpdateUserFormView.inc.php" afterPath="$PROJECT_DIR$/RENDU FINAL/srcs/views/UpdateUserFormView.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RENDU FINAL/srcs/views/View.inc.php" afterPath="$PROJECT_DIR$/RENDU FINAL/srcs/views/View.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RENDU FINAL/srcs/views/templates/addsurveyform.inc.php" afterPath="$PROJECT_DIR$/RENDU FINAL/srcs/views/templates/addsurveyform.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RENDU FINAL/srcs/views/templates/commands.inc.php" afterPath="$PROJECT_DIR$/RENDU FINAL/srcs/views/templates/commands.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RENDU FINAL/srcs/views/templates/loginform.inc.php" afterPath="$PROJECT_DIR$/RENDU FINAL/srcs/views/templates/loginform.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RENDU FINAL/srcs/views/templates/logoutform.inc.php" afterPath="$PROJECT_DIR$/RENDU FINAL/srcs/views/templates/logoutform.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RENDU FINAL/srcs/views/templates/page.inc.php" afterPath="$PROJECT_DIR$/RENDU FINAL/srcs/views/templates/page.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RENDU FINAL/srcs/views/templates/searchform.inc.php" afterPath="$PROJECT_DIR$/RENDU FINAL/srcs/views/templates/searchform.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RENDU FINAL/srcs/views/templates/signupform.inc.php" afterPath="$PROJECT_DIR$/RENDU FINAL/srcs/views/templates/signupform.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RENDU FINAL/srcs/views/templates/survey.inc.php" afterPath="$PROJECT_DIR$/RENDU FINAL/srcs/views/templates/survey.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RENDU FINAL/srcs/views/templates/surveys.inc.php" afterPath="$PROJECT_DIR$/RENDU FINAL/srcs/views/templates/surveys.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RENDU FINAL/srcs/views/templates/updateuserform.inc.php" afterPath="$PROJECT_DIR$/RENDU FINAL/srcs/views/templates/updateuserform.inc.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/RENDU FINAL/docs/Cahier des recettes/Scénario_CasDUtilisation_v2.docx" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -64,11 +27,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Database.inc.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Database.inc.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/RENDU FINAL/srcs/model/Database.inc.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="10" column="5" lean-forward="false" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+            <state relative-caret-position="1008">
+              <caret line="277" column="24" lean-forward="true" selection-start-line="277" selection-start-column="24" selection-end-line="277" selection-end-column="24" />
               <folding>
                 <marker date="1510139677102" expanded="true" signature="3373:3399" ph="SELECT nickn... users" />
                 <marker date="1510139677102" expanded="true" signature="3934:4002" ph="SELECT nickn... users" />
@@ -85,6 +48,26 @@
                 <marker date="1510139677102" expanded="true" signature="11710:11749" ph="DELETE FROM " />
                 <marker date="1510139677102" expanded="true" signature="11859:11896" ph="DELETE FROM " />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DeleteSurveyAction.inc.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/RENDU FINAL/srcs/actions/DeleteSurveyAction.inc.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="414">
+              <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VoteAction.inc.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/RENDU FINAL/srcs/actions/VoteAction.inc.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -184,7 +167,77 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projetmvc_groupe4" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projetmvc_groupe4" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RENDU FINAL" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="srcs" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projetmvc_groupe4" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projetmvc_groupe4" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RENDU FINAL" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="srcs" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projetmvc_groupe4" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projetmvc_groupe4" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RENDU FINAL" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="srcs" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="actions" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -206,6 +259,59 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="C:/wamp64/www/sondages_v4" />
+    <property name="js.eslint.eslintPackage" value="" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpSpecConfigurationType" factoryName="PHPSpec">
+      <PhpTestRunnerSettings />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory />
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui />
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+      <method />
+    </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -218,15 +324,15 @@
       <option name="presentableId" value="Default" />
       <updated>1506973760190</updated>
       <workItem from="1506973761552" duration="189000" />
-      <workItem from="1510139491076" duration="274000" />
+      <workItem from="1510139491076" duration="1316000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="463000" />
+    <option name="totallyTimeSpent" value="1505000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="69" y="-9" width="1860" height="1098" extended-state="6" />
+    <frame x="69" y="-9" width="1860" height="1098" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30510315" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -272,10 +378,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/RENDU FINAL/srcs/actions/VoteAction.inc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/RENDU FINAL/srcs/model/Database.inc.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="5" lean-forward="false" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+        <state relative-caret-position="1008">
+          <caret line="277" column="24" lean-forward="true" selection-start-line="277" selection-start-column="24" selection-end-line="277" selection-end-column="24" />
           <folding>
             <marker date="1510139677102" expanded="true" signature="3373:3399" ph="SELECT nickn... users" />
             <marker date="1510139677102" expanded="true" signature="3934:4002" ph="SELECT nickn... users" />
@@ -292,6 +406,14 @@
             <marker date="1510139677102" expanded="true" signature="11710:11749" ph="DELETE FROM " />
             <marker date="1510139677102" expanded="true" signature="11859:11896" ph="DELETE FROM " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RENDU FINAL/srcs/actions/DeleteSurveyAction.inc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
